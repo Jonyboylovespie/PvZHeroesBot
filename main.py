@@ -7,6 +7,8 @@ IMAGES_DIR = Path(__file__).parent / "Images"
 appName = "com.ea.gp.pvzheroes"
 d = u2.connect()
 
+# I need to set a resolution for the image match, cause resizing window breaks ts
+
 def imageMatch():
     for p in IMAGES_DIR.iterdir():
         if p.is_file():

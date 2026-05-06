@@ -6,6 +6,8 @@ from pathlib import Path
 IMAGES_DIR = Path(__file__).parent / "Images"
 appName = "com.ea.gp.pvzheroes"
 d = u2.connect()
+print(d.shell("wm size"))
+print(d.shell("wm density"))
 
 # I need to set a resolution for the image match, cause resizing window breaks ts
 

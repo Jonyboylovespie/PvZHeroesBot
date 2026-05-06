@@ -1,6 +1,10 @@
 import uiautomator2 as u2
+import time
+import pytesseract
 from pathlib import Path
+
 IMAGES_DIR = Path(__file__).parent / "Images"
+appName = "com.ea.gp.pvzheroes"
 
 def imageMatch():
     for p in IMAGES_DIR.iterdir():
@@ -11,16 +15,31 @@ def imageMatch():
     return None
 
 def reinstall():
-    d.shell("pm clear com.ea.gp.pvzheroes")
-    d.app_start("com.ea.gp.pvzheroes")
+    d.shell(f"pm clear {appName}")
+    d.app_start(appName)
+
+def ad():
+    initialTime = time.time()
+    while time.time() - initialTime < 35:
+        img = d.screenshot()
+        text = pytesseract.image_to_string(img).lower()
+        print(text)
+        if ("been" in text and "rewarded" in text) or "granted" in text or "rapidata" in text:
+            break
+    d.app_stop(appName)
+    d.app_start(appName)
+    
+    
 
 d = u2.connect()
 
-reinstall()
 while True:
     match = imageMatch()
     if match:
+        print(match[0])
         match match[0]:
+            case "watchad.png":
+                d.click(match[1][0], match[1][1])
+                ad()
             case _:
-                print(match[0])
                 d.click(match[1][0], match[1][1])

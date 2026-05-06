@@ -26,7 +26,7 @@ def ad():
     while time.time() - initialTime < 35:
         img = d.screenshot()
         text = pytesseract.image_to_string(img).lower()
-        if ("been" in text and "rewarded" in text) or "granted" in text or "rapidata" in text or "answer questions to earn a reward" in text:
+        if ("been" in text and "rewarded" in text) or "granted" in text or "rapidata" in text or "answer questions to earn a reward" in text or "happydemics" in text:
             break
     d.app_stop(appName)
     d.app_start(appName)

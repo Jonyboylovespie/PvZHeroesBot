@@ -5,6 +5,7 @@ from pathlib import Path
 
 IMAGES_DIR = Path(__file__).parent / "Images"
 appName = "com.ea.gp.pvzheroes"
+d = u2.connect()
 
 def imageMatch():
     for p in IMAGES_DIR.iterdir():
@@ -24,16 +25,28 @@ def ad():
         img = d.screenshot()
         text = pytesseract.image_to_string(img).lower()
         print(text)
-        if ("been" in text and "rewarded" in text) or "granted" in text or "rapidata" in text:
+        if ("been" in text and "rewarded" in text) or "granted" in text or "rapidata" in text or "answer questions to earn a reward" in text:
             break
     d.app_stop(appName)
     d.app_start(appName)
-    
-    
 
-d = u2.connect()
+def birth():
+    d.click(0.5, 0.51)
+    for _ in range(7):
+        time.sleep(0.5)
+        d.click(0.25, 0.95)
+    d.click(0.75, 0.95)
+    d.click(0.9, 0.78)
+    d.click(0.5, 0.55)
 
+time.sleep(1000)
+
+restartTimer = False
+restartTime = time.time()
 while True:
+    if restartTimer and time.time() - restartTime > 40:
+        restartTimer = False
+        reinstall()
     match = imageMatch()
     if match:
         print(match[0])
@@ -41,5 +54,20 @@ while True:
             case "watchad.png":
                 d.click(match[1][0], match[1][1])
                 ad()
+                restartTimer = True
+                restartTime = time.time()
+            case "birth.png":
+                birth()
+            case "connect.png":
+                d.click(match[1][0], match[1][1])
+                d.click(0.5, 0.5)
+            case "continue.png":
+                d.click(match[1][0], match[1][1])
+                time.sleep(3)
+            case "jonyboypie":
+                d.click(match[1][0], match[1][1])
+                d.click(0.5, 0.8)
+                d.click(0.75, 0.6)
             case _:
+                restartTimer = False
                 d.click(match[1][0], match[1][1])

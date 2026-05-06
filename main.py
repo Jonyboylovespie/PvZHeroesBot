@@ -24,7 +24,6 @@ def ad():
     while time.time() - initialTime < 35:
         img = d.screenshot()
         text = pytesseract.image_to_string(img).lower()
-        print(text)
         if ("been" in text and "rewarded" in text) or "granted" in text or "rapidata" in text or "answer questions to earn a reward" in text:
             break
     d.app_stop(appName)
@@ -47,7 +46,6 @@ while True:
         reinstall()
     match = imageMatch()
     if match:
-        print(match[0])
         match match[0]:
             case "watchad.png":
                 d.click(match[1][0], match[1][1])

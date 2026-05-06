@@ -37,7 +37,9 @@ def birth():
         time.sleep(0.5)
         d.click(0.25, 0.95)
     d.click(0.75, 0.95)
-    d.click(0.9, 0.78)
+    time.sleep(0.5)
+    d.click(0.9, 0.68)
+    time.sleep(0.5)
     d.click(0.5, 0.55)
 
 restartTimer = False
@@ -62,7 +64,7 @@ while True:
             case "continue.png":
                 d.click(match[1][0], match[1][1])
                 time.sleep(3)
-            case "jonyboypie":
+            case "jonyboypie.png":
                 d.click(match[1][0], match[1][1])
                 d.click(0.5, 0.8)
                 d.click(0.75, 0.6)

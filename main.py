@@ -6,7 +6,7 @@ from pathlib import Path
 IMAGES_DIR = Path(__file__).parent / "Images"
 appName = "com.ea.gp.pvzheroes"
 d = u2.connect()
-#2560x1440 and 360dpi
+#900x1600 240dpi
 
 # I need to set a resolution for the image match, cause resizing window breaks ts
 

@@ -7,7 +7,7 @@ IMAGES_DIR = Path(__file__).parent / "Images"
 appName = "com.ea.gp.pvzheroes"
 d = u2.connect()
 
-# STANDARDIZED EMULATOR RESOLUTION IS 900x1600 320dpi
+# STANDARDIZED EMULATOR RESOLUTION IS 900x1600
 
 def imageMatch():
     for p in IMAGES_DIR.iterdir():

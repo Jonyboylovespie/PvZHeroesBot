@@ -40,7 +40,7 @@ def birth():
     time.sleep(0.5)
     d.click(0.9, 0.68)
     time.sleep(0.5)
-    d.click(0.5, 0.55)
+    d.click(0.5, 0.6)
 
 restartTimer = False
 restartTime = time.time()

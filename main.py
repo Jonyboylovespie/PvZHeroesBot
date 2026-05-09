@@ -19,7 +19,6 @@ def imageMatch():
 
 def reinstall():
     d.shell(f"pm clear {appName}")
-    d.app_start(appName)
 
 def ad():
     initialTime = time.time()
@@ -29,7 +28,6 @@ def ad():
         if ("been" in text and "rewarded" in text) or "granted" in text or "rapidata" in text or "answer questions to earn a reward" in text or "happydemics" in text:
             break
     d.app_stop(appName)
-    d.app_start(appName)
 
 def birth():
     d.click(0.5, 0.51)
@@ -45,7 +43,8 @@ def birth():
 restartTimer = False
 restartTime = time.time()
 while True:
-    print(d.app_current())
+    if d.app_current()["package"] is not appName:
+        d.app_start(appName)
     if restartTimer and time.time() - restartTime > 40:
         restartTimer = False
         reinstall()

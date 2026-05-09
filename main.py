@@ -45,6 +45,7 @@ def birth():
 restartTimer = False
 restartTime = time.time()
 while True:
+    print(d.app_current())
     if restartTimer and time.time() - restartTime > 40:
         restartTimer = False
         reinstall()

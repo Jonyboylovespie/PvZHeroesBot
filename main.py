@@ -17,9 +17,6 @@ def imageMatch():
                 return [p.name, match["point"]]
     return None
 
-def reinstall():
-    d.shell(f"pm clear {appName}")
-
 def ad():
     initialTime = time.time()
     while time.time() - initialTime < 35:
@@ -47,7 +44,7 @@ while True:
         d.app_start(appName)
     if restartTimer and time.time() - restartTime > 40:
         restartTimer = False
-        reinstall()
+        d.shell(f"pm clear {appName}")
     match = imageMatch()
     if match:
         match match[0]:

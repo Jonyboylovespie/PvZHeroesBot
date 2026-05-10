@@ -39,6 +39,7 @@ def birth():
 
 restartTimer = False
 restartTime = time.time()
+d.shell(f"pm clear {appName}")
 while True:
     if d.app_current()["package"] is not appName:
         d.app_start(appName)
@@ -55,11 +56,11 @@ while True:
                 restartTime = time.time()
             case "birth.png":
                 birth()
-            case "continue.png":
+            case "connect.png":
                 d.click(match[1][0], match[1][1])
+                d.click(0.5, 0.5)
                 time.sleep(3)
-            case "connect2.png":
-                d.click(match[1][0], match[1][1])
+                d.click(0.5, 0.8)
                 time.sleep(3)
             case "jonyboypie.png":
                 d.click(match[1][0], match[1][1])

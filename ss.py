@@ -2,7 +2,7 @@ import uiautomator2 as u2
 
 SIZE = 50
 Xpercent = 0.5
-Ypercent = 0.48
+Ypercent = 0.5
 
 d = u2.connect()
 img = d.screenshot()

@@ -55,12 +55,12 @@ while True:
                 restartTime = time.time()
             case "birth.png":
                 birth()
-            case "connect.png":
-                d.click(match[1][0], match[1][1])
-                d.click(0.5, 0.5)
             case "continue.png":
                 d.click(match[1][0], match[1][1])
                 time.sleep(3)
+            case "connect2.png":
+                d.click(match[1][0], match[1][1])
+                time.sleep(1)
             case "jonyboypie.png":
                 d.click(match[1][0], match[1][1])
                 d.click(0.5, 0.8)

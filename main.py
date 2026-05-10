@@ -39,7 +39,6 @@ def birth():
 
 restartTimer = False
 restartTime = time.time()
-d.shell(f"pm clear {appName}")
 while True:
     if d.app_current()["package"] is not appName:
         d.app_start(appName)

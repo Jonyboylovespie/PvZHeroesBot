@@ -60,7 +60,7 @@ while True:
                 time.sleep(3)
             case "connect2.png":
                 d.click(match[1][0], match[1][1])
-                time.sleep(1)
+                time.sleep(3)
             case "jonyboypie.png":
                 d.click(match[1][0], match[1][1])
                 d.click(0.5, 0.8)

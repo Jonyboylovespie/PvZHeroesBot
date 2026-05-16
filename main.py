@@ -20,10 +20,9 @@ def imageMatch():
 def ad():
     initialTime = time.time()
     while time.time() - initialTime < 35:
-        img = d.screenshot()
-        text = pytesseract.image_to_string(img).lower()
-        if ("been" in text and "rewarded" in text) or "granted" in text or "rapidata" in text or "answer questions to earn a reward" in text or "happydemics" in text:
-            break
+        if d.image.match(str(IMAGES_DIR / "closead.png"))["similarity"] > 0.99:
+            d.click(0.94, 0.03)
+            return
     d.app_stop(appName)
 
 def birth():
